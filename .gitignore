@@ -2,3 +2,4 @@
 racspa_dump
 99-pgdump
 99-pg_dump
+99-pg_restore
