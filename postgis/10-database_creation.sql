@@ -1,10 +1,18 @@
-\c postgres postgres
+/*
 
-create role racspa with login password 'racspa';
-create database racspa owner racspa encoding 'UTF8';
+  PostGIS database creation.
 
-\c racspa postgres
+*/
+\i 00-config.sql
 
-alter schema public owner to racspa;
+\c postgres :superuser
 
-\c racspa racspa
+create role :user with login password :'pass';
+create database :dbname owner :user encoding 'UTF8';
+
+\c :dbname :superuser
+
+alter schema public owner to :user;
+
+\c :dbname :user
+

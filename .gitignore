@@ -1,5 +1,5 @@
 00-postgis_ddl/00-config.sql
-racspa_dump
 99-pgdump
 99-pg_dump
 99-pg_restore
+00-config.sql
