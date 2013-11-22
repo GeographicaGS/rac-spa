@@ -86,7 +86,7 @@ language plpgsql;
   geometry array.
 
 */
-create or replace function public.gs__geom_boundaries(
+create or replace function public.gs__geomboundaries(
   _geom geometry[]
 ) returns float[] as
 $$
@@ -130,7 +130,7 @@ language plpgsql;
   Returns a [minx,miny,maxx,maxy] for a geometry.
 
 */
-create or replace function public.gs__geom_boundaries(
+create or replace function public.gs__geomboundaries(
   _geom geometry
 ) returns float[] as
 $$
@@ -156,7 +156,7 @@ language plpgsql;
   Takes a set of points and a closed LINESTRING and returns the splits.
 
 */
-create or replace function gs__split_closed_linestring(
+create or replace function public.gs__splitclosedlinestring(
   _points geometry[],
   _line geometry,
   _tolerance float
@@ -214,6 +214,101 @@ begin
   _lines = _lines || st_union(_l1, _l2);
 
   return _lines;
+end;
+$$
+language plpgsql;
+
+/*
+
+  Returns a polygonal grid that covers a geometry at a regular step.
+
+*/
+create or replace function public.gs__grid(
+  _geom geometry,
+  _size float
+) returns setof geometry as
+$$
+declare
+  _bounds float[];
+  _width float;
+  _height float;
+  _cols integer;
+  _rows integer;
+  _x float;
+  _y float;
+  _c integer;
+  _r integer;
+  _g geometry;
+begin
+  _bounds = gs__geom_boundaries(_geom);
+  _cols = ((_bounds[3]-_bounds[1])/_size)::integer;
+  _rows = ((_bounds[4]-_bounds[2])/_size)::integer;
+
+  if (_bounds[3]-_bounds[1])::numeric%_size::numeric<>0 then
+    _cols = _cols+1;
+  end if;
+
+  if (_bounds[4]-_bounds[2])::numeric%_size::numeric<>0 then
+    _rows = _rows+1;
+  end if;
+
+  _width = _cols*_size;
+  _height = _rows*_size;
+
+  _x = _bounds[1]-((_width-(_bounds[3]-_bounds[1]))/2);
+  _y = _bounds[2]-((_height-(_bounds[4]-_bounds[2]))/2);
+
+  for _c in 0.._cols-1 loop
+    for _r in 0.._rows-1 loop
+      _g = gs__rectangle(array[_x+(_c*_size), _y+(_r*_size), 
+                                 _x+(_c*_size)+_size, _y+(_r*_size)+_size]::float[]);
+      return next _g;
+    end loop;
+  end loop;
+end;
+$$
+language plpgsql;
+
+/*
+
+  This function returns human readable lat / lon output out of a geometry.
+  First parameter is the coordinate, the second, a varchar of just 'x' or 'y'.
+
+*/
+create or replace function public.gs__degreeminsec(
+  _coord float,
+  _xy char(1)
+) returns varchar as
+$$
+declare
+  _suffix char(1);
+  _grads integer;
+  _min float;
+  _secs float;
+  _res varchar;
+begin
+  if _xy='x' then
+    if _coord>=0 then
+      _suffix = 'E';
+    else
+      _suffix = 'W';
+    end if;
+  end if;
+  
+  if _xy='y' then
+    if _coord>=0 then
+      _suffix = 'N';
+    else
+      _suffix = 'S';
+    end if;
+  end if;
+  
+  _grads = floor(abs(_coord));
+  _min = (abs(_coord) - _grads)*60;
+  _secs = (abs(_min) - floor(abs(_min)))*60;
+  _res = _grads || '°' || floor(_min) || '''' || round(_secs::numeric, 2) || '''''' || _suffix || ' ';
+  	
+  return _res;
 end;
 $$
 language plpgsql;

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp /home/malkab/Dropbox/ragnarok/code/GeographicaPostGisExtensions/redux/geometries.sql .
+
