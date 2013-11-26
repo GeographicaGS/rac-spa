@@ -5,11 +5,11 @@
     <symbols>
       <symbol outputUnit="MM" alpha="1" type="fill" name="0">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="254,145,40,255"/>
-          <prop k="color_border" v="254,145,40,255"/>
+          <prop k="color" v="50,89,139,255"/>
+          <prop k="color_border" v="50,89,139,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
-          <prop k="style_border" v="no"/>
+          <prop k="style_border" v="solid"/>
           <prop k="width_border" v="0.26"/>
         </layer>
       </symbol>
@@ -42,8 +42,9 @@
   </labelattributes>
   <edittypes>
     <edittype type="0" name="gid"/>
+    <edittype type="0" name="name"/>
   </edittypes>
-  <editform>.</editform>
+  <editform></editform>
   <editforminit></editforminit>
   <annotationform>.</annotationform>
   <attributeactions/>

@@ -11,31 +11,31 @@
       <symbol outputUnit="MM" alpha="1" type="fill" name="0">
         <layer pass="0" class="SimpleFill" locked="0">
           <prop k="color" v="255,226,174,255"/>
-          <prop k="color_border" v="0,0,0,255"/>
+          <prop k="color_border" v="255,226,174,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="no"/>
-          <prop k="width_border" v="0.26"/>
+          <prop k="width_border" v="0.5"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="1">
         <layer pass="0" class="SimpleFill" locked="0">
           <prop k="color" v="255,150,116,255"/>
-          <prop k="color_border" v="0,0,0,255"/>
+          <prop k="color_border" v="255,150,116,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="no"/>
-          <prop k="width_border" v="0.26"/>
+          <prop k="width_border" v="0.5"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="2">
         <layer pass="0" class="SimpleFill" locked="0">
           <prop k="color" v="255,75,58,255"/>
-          <prop k="color_border" v="0,0,0,255"/>
+          <prop k="color_border" v="255,75,58,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="no"/>
-          <prop k="width_border" v="0.26"/>
+          <prop k="width_border" v="0.5"/>
         </layer>
       </symbol>
     </symbols>
@@ -86,7 +86,7 @@
     <edittype type="0" name="max"/>
     <edittype type="0" name="score"/>
   </edittypes>
-  <editform></editform>
+  <editform>.</editform>
   <editforminit></editforminit>
   <annotationform>.</annotationform>
   <attributeactions/>
