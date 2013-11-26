@@ -4,10 +4,10 @@
     <mapcanvas>
         <units>meters</units>
         <extent>
-            <xmin>-347085.008832</xmin>
-            <ymin>4207721.236239</ymin>
-            <xmax>-318796.999067</xmax>
-            <ymax>4227162.416695</ymax>
+            <xmin>-335456.519688</xmin>
+            <ymin>4219502.045239</ymin>
+            <xmax>-325997.725215</xmax>
+            <ymax>4224362.340353</ymax>
         </extent>
         <projections>0</projections>
         <destinationsrs>
@@ -24,6 +24,11 @@
         </destinationsrs>
     </mapcanvas>
     <legend updateDrawingOrder="true">
+        <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="survey" showFeatureCount="0">
+            <filegroup open="true" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="survey20131126125522728" visible="1"/>
+            </filegroup>
+        </legendlayer>
         <legendlayer drawingOrder="125" open="false" checked="Qt::Checked" name="Toponism" showFeatureCount="0">
             <filegroup open="false" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="toponism20131125011547833" visible="1"/>
@@ -6188,8 +6193,24 @@
                 <LayerItem layerId="HillSha_Topo3120131126114948956" text="HillSha_Topo31">
                     <RasterClassificationItem layerId="HillSha_Topo3120131126114948956" color="#7d7d7d" text="0-255"/>
                 </LayerItem>
+                <LayerItem layerId="survey20131126125522728" text="survey">
+                    <VectorClassificationItemNg text="">
+                        <symbols>
+                            <symbol outputUnit="MM" alpha="1" type="marker" name="classificationSymbol">
+                                <layer pass="0" class="SimpleMarker" locked="0">
+                                    <prop k="angle" v="0"/>
+                                    <prop k="color" v="191,112,137,255"/>
+                                    <prop k="color_border" v="0,0,0,255"/>
+                                    <prop k="name" v="circle"/>
+                                    <prop k="offset" v="0,0"/>
+                                    <prop k="size" v="2"/>
+                                </layer>
+                            </symbol>
+                        </symbols>
+                    </VectorClassificationItemNg>
+                </LayerItem>
             </Model>
-            <ComposerItem width="9" x="249.219" y="13.6558" rotation="0" height="2441.5" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="3.2953" id="" positionLock="false">
+            <ComposerItem width="9" x="249.219" y="13.6558" rotation="0" height="2450" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="3.2953" id="" positionLock="false">
                 <FrameColor alpha="255" red="0" blue="0" green="0"/>
                 <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
             </ComposerItem>
@@ -6197,13 +6218,6 @@
         <Composition printResolution="300" paperWidth="297" snapGridOffsetX="0" snapGridResolution="0" snapGridOffsetY="0" snapping="0" paperHeight="210" printAsRaster="0"/>
     </Composer>
     <Composer title="Corallina elongata" visible="0">
-        <ComposerScaleBar segmentMillimeters="10.7267" numMapUnitsPerScaleBarUnit="1" numSegments="2" height="2" alignment="0" labelBarSpace="3" outlineWidth="1" numSegmentsLeft="2" style="Single Box" unitLabel="m" font="Ubuntu,8,-1,5,50,0,0,0,0,0" mapId="0" boxContentSpace="1" numUnitsPerSegment="1000">
-            <BrushColor red="0" blue="0" green="0"/>
-            <ComposerItem width="45.18" x="239.898" y="151.428" rotation="0" height="9.7" frame="true" outlineWidth="0.3" zValue="4" lastValidViewScaleFactor="4.3981" id="" positionLock="false">
-                <FrameColor alpha="255" red="0" blue="0" green="0"/>
-                <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
-            </ComposerItem>
-        </ComposerScaleBar>
         <ComposerLabel valign="32" labelText="Proyección Mercator. Elipsoide WGS84." halign="2" margin="1">
             <LabelFont description="Ubuntu,8,-1,5,25,0,0,0,0,0"/>
             <FontColor red="0" blue="0" green="0"/>
@@ -6237,6 +6251,13 @@
                 <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
             </ComposerItem>
         </ComposerMap>
+        <ComposerScaleBar segmentMillimeters="10.7267" numMapUnitsPerScaleBarUnit="1" numSegments="2" height="2" alignment="0" labelBarSpace="3" outlineWidth="1" numSegmentsLeft="2" style="Single Box" unitLabel="m" font="Ubuntu,8,-1,5,50,0,0,0,0,0" mapId="0" boxContentSpace="1" numUnitsPerSegment="1000">
+            <BrushColor red="0" blue="0" green="0"/>
+            <ComposerItem width="45.18" x="239.898" y="151.428" rotation="0" height="9.7" frame="true" outlineWidth="0.3" zValue="4" lastValidViewScaleFactor="4.3981" id="" positionLock="false">
+                <FrameColor alpha="255" red="0" blue="0" green="0"/>
+                <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
+            </ComposerItem>
+        </ComposerScaleBar>
         <ComposerLegend symbolWidth="4" title="" boxSpace="3" titleFont="Ubuntu,16,-1,5,50,0,0,0,0,0" map="0" groupFont="Ubuntu,14,-1,5,50,0,0,0,0,0" layerFont="Ubuntu,12,-1,5,50,0,0,0,0,0" groupSpace="10" symbolSpace="0" symbolHeight="4" layerSpace="3" iconLabelSpace="2" wrapChar="" itemFont="Ubuntu,9,-1,5,50,0,0,0,0,0">
             <Model autoUpdate="1">
                 <LayerItem layerId="height_ranges20131124220524691" text="Hipsometry">
@@ -11693,8 +11714,24 @@
                 <LayerItem layerId="HillSha_Topo3120131126114948956" text="HillSha_Topo31">
                     <RasterClassificationItem layerId="HillSha_Topo3120131126114948956" color="#7d7d7d" text="0-255"/>
                 </LayerItem>
+                <LayerItem layerId="survey20131126125522728" text="survey">
+                    <VectorClassificationItemNg text="">
+                        <symbols>
+                            <symbol outputUnit="MM" alpha="1" type="marker" name="classificationSymbol">
+                                <layer pass="0" class="SimpleMarker" locked="0">
+                                    <prop k="angle" v="0"/>
+                                    <prop k="color" v="191,112,137,255"/>
+                                    <prop k="color_border" v="0,0,0,255"/>
+                                    <prop k="name" v="circle"/>
+                                    <prop k="offset" v="0,0"/>
+                                    <prop k="size" v="2"/>
+                                </layer>
+                            </symbol>
+                        </symbols>
+                    </VectorClassificationItemNg>
+                </LayerItem>
             </Model>
-            <ComposerItem width="9" x="245.078" y="13.4284" rotation="0" height="2441.5" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="4.3981" id="" positionLock="false">
+            <ComposerItem width="9" x="245.078" y="13.4284" rotation="0" height="2450" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="4.3981" id="" positionLock="false">
                 <FrameColor alpha="255" red="0" blue="0" green="0"/>
                 <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
             </ComposerItem>
@@ -17192,8 +17229,24 @@
                 <LayerItem layerId="HillSha_Topo3120131126114948956" text="HillSha_Topo31">
                     <RasterClassificationItem layerId="HillSha_Topo3120131126114948956" color="#7d7d7d" text="0-255"/>
                 </LayerItem>
+                <LayerItem layerId="survey20131126125522728" text="survey">
+                    <VectorClassificationItemNg text="">
+                        <symbols>
+                            <symbol outputUnit="MM" alpha="1" type="marker" name="classificationSymbol">
+                                <layer pass="0" class="SimpleMarker" locked="0">
+                                    <prop k="angle" v="0"/>
+                                    <prop k="color" v="191,112,137,255"/>
+                                    <prop k="color_border" v="0,0,0,255"/>
+                                    <prop k="name" v="circle"/>
+                                    <prop k="offset" v="0,0"/>
+                                    <prop k="size" v="2"/>
+                                </layer>
+                            </symbol>
+                        </symbols>
+                    </VectorClassificationItemNg>
+                </LayerItem>
             </Model>
-            <ComposerItem width="9" x="249.078" y="12.9732" rotation="0" height="2441.5" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="4.39336" id="" positionLock="false">
+            <ComposerItem width="9" x="249.078" y="12.9732" rotation="0" height="2450" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="4.39336" id="" positionLock="false">
                 <FrameColor alpha="255" red="0" blue="0" green="0"/>
                 <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
             </ComposerItem>
@@ -22691,15 +22744,31 @@
                 <LayerItem layerId="HillSha_Topo3120131126114948956" text="HillSha_Topo31">
                     <RasterClassificationItem layerId="HillSha_Topo3120131126114948956" color="#7d7d7d" text="0-255"/>
                 </LayerItem>
+                <LayerItem layerId="survey20131126125522728" text="survey">
+                    <VectorClassificationItemNg text="">
+                        <symbols>
+                            <symbol outputUnit="MM" alpha="1" type="marker" name="classificationSymbol">
+                                <layer pass="0" class="SimpleMarker" locked="0">
+                                    <prop k="angle" v="0"/>
+                                    <prop k="color" v="191,112,137,255"/>
+                                    <prop k="color_border" v="0,0,0,255"/>
+                                    <prop k="name" v="circle"/>
+                                    <prop k="offset" v="0,0"/>
+                                    <prop k="size" v="2"/>
+                                </layer>
+                            </symbol>
+                        </symbols>
+                    </VectorClassificationItemNg>
+                </LayerItem>
             </Model>
-            <ComposerItem width="9" x="247.078" y="13.4284" rotation="0" height="2441.5" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="4.39336" id="" positionLock="false">
+            <ComposerItem width="9" x="247.078" y="13.4284" rotation="0" height="2450" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="4.39336" id="" positionLock="false">
                 <FrameColor alpha="255" red="0" blue="0" green="0"/>
                 <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
             </ComposerItem>
         </ComposerLegend>
         <Composition printResolution="300" paperWidth="297" snapGridOffsetX="0" snapGridResolution="0" snapGridOffsetY="0" snapping="0" paperHeight="210" printAsRaster="0"/>
     </Composer>
-    <projectlayers layercount="132">
+    <projectlayers layercount="133">
         <maplayer minimumScale="0" maximumScale="1e+08" geometry="Polygon" type="vector" hasScaleBasedVisibilityFlag="0">
             <id>Acanthella_acuta20131126113926157</id>
             <datasource>dbname='racspa' host=localhost port=5432 user='racspa' password='racspa' key='gid' table="grid_analysis"."grid_species_64" (geom) sql=</datasource>
@@ -30572,7 +30641,7 @@
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
             <id>HillSha_Topo3120131126114948956</id>
-            <datasource>/media/big/Dropbox/ragnarok/geographica-projects/proyecto-rac-spa/dtm/HillSha_Topo31.tif</datasource>
+            <datasource>../../../malkab/Dropbox/ragnarok/geographica-projects/proyecto-rac-spa/dtm/HillSha_Topo31.tif</datasource>
             <title></title>
             <abstract></abstract>
             <layername>Hillshade</layername>
@@ -36894,6 +36963,71 @@
             <editform>.</editform>
             <editforminit></editforminit>
             <annotationform>.</annotationform>
+            <attributeactions/>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>survey20131126125522728</id>
+            <datasource>dbname='racspa' host=localhost port=5432 user='racspa' password='racspa' sslmode=disable key='id_survey' estimatedmetadata=true srid=3857 type=POINT table="data"."survey" (geom) sql=</datasource>
+            <title></title>
+            <abstract></abstract>
+            <layername>survey</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+                    <srsid>3857</srsid>
+                    <srid>3857</srid>
+                    <authid>EPSG:3857</authid>
+                    <description>WGS 84 / Pseudo Mercator</description>
+                    <projectionacronym>merc</projectionacronym>
+                    <ellipsoidacronym>WGS84</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="System">postgres</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="0">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="191,112,137,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield></displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="Ubuntu"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <annotationform></annotationform>
             <attributeactions/>
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0">
