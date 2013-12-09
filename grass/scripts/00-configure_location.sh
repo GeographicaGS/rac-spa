@@ -18,12 +18,14 @@ g.proj -c proj4="+proj=merc +a=6378137 +b=6378137 \
 g.region n=4272313 s=4166585 w=-404256 e=-230490 -s
 
 v.in.ogr dsn="PG:host=${host} dbname=${dbname} user=${user} port=${port}" \
-		     layer=data.survey output=survey --verbose --overwrite
+		layer=data.survey output=survey --verbose --overwrite
 
 v.in.ogr dsn="PG:host=${host} dbname=${dbname} user=${user} port=${port}" \
-		     layer=context.land_mask output=mask --verbose --overwrite
+		layer=context.land_mask output=mask --verbose --overwrite
 
 v.voronoi --overwrite --verbose input=survey output=survey_voronoi
 
-v.out.ogr input=survey_voronoi type=area \
-		      dsn="PG:host=${host} dbname=${dbname} user=${user} port=${port}" \
+v.out.ogr input=survey_voronoi@PERMANENT type=area \
+		dsn="PG:host=${host} dbname=${dbname} user=${user} port=${port}" \
+		format=PostgreSQL olayer=trash.voronoi --verbose --overwrite lco="GEOMETRY_NAME=geom" \
+		lco="FID=gid"

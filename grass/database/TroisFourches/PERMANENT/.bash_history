@@ -34,3 +34,57 @@ g.mremove -f vect=survey
 v.voronoi --overwrite --verbose input=survey output=survey_voronoi
 ./00-configure_location.sh 
 exit
+ls
+cd ..
+ls
+cd scripts/
+ls
+less 00-configure_location.sh 
+./00-configure_location.sh 
+exit
+exit
+v.out.ogr input=survey_voronoi@PERMANENT type=area dsn="PG:host=localhost dbname=racspa user=racspa" olayer=trash.voronoi format=PostgreSQL lco="GEOMETRY_NAME=geom, FID=gif"
+v.out.ogr input=survey_voronoi@PERMANENT type=area dsn=PG:host=localhost dbname=racspa user=racspa olayer=trash.voronoi format=PostgreSQL lco="GEOMETRY_NAME=geom, FID=gif"
+v.out.ogr --verbose input=survey_voronoi@PERMANENT type=area dsn=PG:host=localhost dbname=racspa user=racspa olayer=trash.voronoi format=PostgreSQL lco=GEOMETRY_NAME=geom FID=gif
+v.out.ogr --verbose input=survey_voronoi@PERMANENT type=area dsn=PG:host=localhost dbname=racspa user=racspa olayer=trash.voronoi format=PostgreSQL lco=GEOMETRY_NAME=geom FID=gif
+cd ..
+ls
+cd grass/
+ls
+cd scripts/
+ls
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+exit
