@@ -3,3 +3,4 @@
 99-pg_dump
 99-pg_restore
 00-config.sql
+*.komodoproject
