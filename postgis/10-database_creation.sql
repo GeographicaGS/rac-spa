@@ -16,3 +16,4 @@ alter schema public owner to :user;
 
 \c :dbname :user
 
+create schema utility_views;

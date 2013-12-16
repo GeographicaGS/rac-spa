@@ -88,3 +88,16 @@ ls
 ./00-configure_location.sh 
 ./00-configure_location.sh 
 exit
+cd scripts/
+ls
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+./00-configure_location.sh 
+exit

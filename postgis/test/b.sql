@@ -31,14 +31,12 @@
 -- from
 --   context.voronoi b, a;
 
-create table context.voronoi_ramsar as
+--create table context.voronoi_ramsar as
 with a as(
   select geom
-  from trash.ramsar_zone
+  from context.height_ranges
+  where lower=-50
 )
-select
-  gid,
-  id_survey,
-  st_intersection(a.geom, b.geom) as geom
-from
-  a, context.voronoi_bathimetry_mask b;
+update context.community_map b
+set geom=st_difference(b.geom, a.geom)
+from a;
