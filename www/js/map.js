@@ -1,5 +1,6 @@
 Map = {
     _points : {},
+    _layerEls: [],
     initialize: function(){
         var mapOptions = {
             zoom: 13,
@@ -12,16 +13,42 @@ Map = {
             }			
         };
         this._map = new google.maps.Map(document.getElementById('map'),mapOptions);
-        this._drawPoints();
+        this.drawPoints();
+        
+        
+    },
+    drawLayer: function(name){
+        
+        this._removeEls();
+        var obj = this;
+         $.getJSON("php/base_map.php?layer="+name,function (elements){
+           
+            for (i in elements.results) {
+                var j = elements.results[i];
+                
+                if (j && j.geojson && j.geojson.type) {
+                    obj._setGenericLayer(j);
+                }
+                
+            }
+            
+        });
     },
     openPointImageGallery:function(id_survey){
-        var $el = $("a[data-fancybox-group=gallery_"+id_survey+"]");
-        if ($el.length > 0 ){
-            $($el[0]).trigger("click");
+        
+        var el = this._points[id_survey];
+
+
+        var html = "";
+        
+        for (i in el.images){
+            var url = el.images[i].substr(3);
+            html += "<a class='fancybox' href='"+ url +"' data-fancybox-group='gallery_" + el.id_survey + "' title='"+ el.name +" [" + el.depth +" m]' style='display:none'><img src='" + url + "' alt='' /></a>"; 
         }
-        else{
-            showMsg("There is no images at this place");
-        }
+            
+        $("#co_images").html(html);
+        $("#co_images a:first-child").trigger("click");        
+
     },
     openPointVideoGallery: function(id_survey){
         
@@ -37,24 +64,38 @@ Map = {
        showMsg(textMsg);
           
     },
+    _removeEls: function(){
+        for (i in this._layerEls)
+        {
+            this._layerEls[i].setMap(null);
+        }
+        this._layerEls = [];
+    },
+    _setGenericLayer: function(el){
+        this._points[el.id_survey] = el;
+        
+        var googleVector = new GeoJSON(el.geojson,{
+            "strokeColor": "#FF7800",
+            "strokeOpacity": 1,
+            "strokeWeight": 2,
+            "fillColor": "#46461F",
+            "fillOpacity": 0.25
+        }),obj = this;
+        googleVector.setMap(this._map);
+        this._layerEls.push(googleVector);
+        //googleVector.setTitle(el.name);
+    },
+    
     _setClickPoints: function(el){
         this._points[el.id_survey] = el;
         
         var googleVector = new GeoJSON(el.geojson,{"icon":"img/marcador.png"}),obj = this;
         googleVector.setMap(this._map);
         googleVector.setTitle(el.name);
-    
+        this._layerEls.push(googleVector);
         
-        var html = "";
-        
-        for (i in el.images){
-            var url = el.images[i].substr(3);
-            html += "<a class='fancybox' href='"+ url +"' data-fancybox-group='gallery_" + el.id_survey + "' title='"+ el.name +" [" + el.depth +" m]' style='display:none'><img src='" + url + "' alt='' /></a>"; 
-        }
-        
-        if (html!= "") {
-            $("body").append(html);
-        }
+       
+       
         
         html = "<div class='infowindow'>" +
                     "<h4>"+el.name+"</h4>" + 
@@ -85,10 +126,11 @@ Map = {
         });
         
     },
-    _drawPoints: function(){
+    drawPoints: function(){
+        
+        this._removeEls();
         var obj = this;
-        $.getJSON("php/points.php",function (elements){
-            console.log(elements);
+        $.getJSON("php/points.php",function (elements){            
             for (i in elements.results) {
                 var j = elements.results[i];
                 

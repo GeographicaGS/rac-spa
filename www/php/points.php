@@ -29,6 +29,4 @@ while($row = pg_fetch_object($result))
     $response["results"] []= $row;
 }
 
-
-pg_fetch_all($result);
 echo json_encode((object) $response);

@@ -153,7 +153,7 @@
                     <div class="panel-heading">
                       <h4 class="panel-title presetationH4">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                           Mapas <span class="badge">(27)</span>
+                           Mapas <span class="badge">(8)</span>
                          
                         </a>
                       </h4>
@@ -161,13 +161,19 @@
                     <div id="collapseTwo" class="panel-collapse collapse">
                       <div class="panel-body">
                         <div class="list-group capas">
-                          <a href="#" class="list-group-item">
-                            Cras justo odio
+                          <a href="javascript:Map.drawPoints()" class="list-group-item active" >
+							Enquête
                           </a>
-                          <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                          <a href="#" class="list-group-item">Morbi leo risus</a>
-                          <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                          <a href="#" class="list-group-item">Vestibulum at eros</a>
+                          <a href="javascript:Map.drawLayer('astroides_calycularis')" class="list-group-item ">Astroides Calycularis</a>						  
+						  <a href="javascript:Map.drawLayer('bottom')" class="list-group-item">Fonds marines</a>
+						  <a href="javascript:Map.drawLayer('community')" class="list-group-item">Communautés biologiques marines </a>						  
+						  <a href="javascript:Map.drawLayer('cystoseira_mediterranea')" class="list-group-item">Cystoseira Mediterranea</a>
+						  <a href="javascript:Map.drawLayer('ophidiaster_ophidianus')" class="list-group-item">Ophidiaster Ophidianus</a>
+						  <a href="javascript:Map.drawLayer('pinna_rudis')" class="list-group-item">Pinna Rudis</a>
+						  <a href="javascript:Map.drawLayer('savalia_savaglia')" class="list-group-item">Savalia Savaglia</a>
+						  
+
+                         
                         </div>
 
                       </div>
@@ -227,8 +233,14 @@
 		$(window).resize(resizeMe);
 		resizeMe();
 		Map.initialize();
+		
+		$(".list-group-item").click(function(){
+		  $(".list-group-item").removeClass("active");
+		  $(this).addClass("active");
+		});
 	  });
 	</script>
+	<div id="co_images"></div>
 	 <div style="display:none">
          <a id="info_fancybox" href="#info_fancy_box_data">Fancybox hidden_link</a>
          <div id="info_fancy_box_data"></div>
