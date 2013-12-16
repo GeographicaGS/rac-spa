@@ -38,7 +38,7 @@ select
   b.description_fr as bottom,
   community,
   species,
-  geom
+  st_transform(geom, 4326) as geom
 from
   data.survey a inner join
   data.bottom b on
