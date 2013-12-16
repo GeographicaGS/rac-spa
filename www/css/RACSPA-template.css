@@ -1,0 +1,187 @@
+html, body{ height:100%;}
+body {
+	font-family: 'Titillium Web', sans-serif;
+	color:#4a565c;
+	font-size:14px;
+	font-weight:400;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Titillium Web', sans-serif;}
+
+/*MODAL*/
+.modal .modal-title{
+	color:#006699;
+  	font-weight:400;
+	font-size:20px;
+	text-transform:uppercase;
+	}
+
+/*COLUMAN MAPAS*/
+.container {
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.Columna_mapas{
+	background:#fff;
+	border-left:1px solid #283237;
+	min-height:100%;
+	height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto /*-60px*/;
+  /* Pad bottom by footer height */
+  padding: 10px 0 0px /*60px*/;
+  margin-bottom: -9999px;
+    padding-bottom: 9999px;
+	}
+.idiomas .btn{
+	font-size:12px;
+	color:#0094c2;
+	border:none;
+	background:none;
+	margin-top:-15px;
+	}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default{ background:none;}
+.btn-group.open .dropdown-toggle{box-shadow: none;}
+.page-header{ margin-top:8px; padding:0 20px 3px; margin-bottom:14px; border-bottom:1px solid #e1e4e5;}
+.logos{
+		clear:both;
+	float:left;
+	width:100%;
+	margin-bottom:11px;
+	}
+.logoCirculo{ margin-right:20px; float: left; width:auto; padding-right:20px; border-right:1px solid #e1e4e5;height:auto}
+.racspaLogo{float: left; width:auto; margin-top:15px}
+.page-header h1.title{
+	margin-top:14px;
+	color:#006699;
+  	font-weight:200;
+	font-size:20px;
+	text-transform:uppercase;
+	margin-bottom:0px;
+	}
+.page-header h2.subtitle{
+	font-weight:400;
+	font-size:14px;
+	color:#899499;
+	line-height:18px;
+	margin-top:0px;
+	}
+.page-header h2.subtitle span{ font-weight:600; color:#283237;}
+.panel-group .presentation{
+	border:none;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+	}
+.panel-group .presentation .panel-heading{
+	background:none;
+	border-radius: 0px;
+	padding: 0 20px 10px;
+	border:none;
+	}
+.panel-body{ padding:0px;}
+.panel-group .presentation .panel-body{ padding:10px 20px 20px;}
+
+.panel-default > .panel-heading + .panel-collapse .panel-body{ border-top:0px;}
+.Partners{}
+
+.readMore{
+	background:none;
+	padding:0;
+	border:none;
+	color:#0094c2;
+	font-size:14px;
+	margin-top:24px;
+	
+	}
+.readMore:hover, .readMore:focus, .readMore:active, .readMore.active {
+    background: none;
+    border: none;
+    color: #016a8b;
+	text-decoration:underline;
+	border-radius:0px;
+}
+.panel-default{ border:none;}
+.panel{ box-shadow:none}
+.panel-group .panel{ border-radius:0px;}
+.panel-default > .panel-heading{ background:#eeeeee; border-bottom:1px solid #c4c9cc; border-top:1px solid #c4c9cc; border-radius:0px; padding-left:20px; padding-right:20px;}
+.panel-title > a:hover {
+    color: #0094c2;
+}
+#accordion{ margin-bottom:30px;}
+h4.presetationH4{ color:#899499; font-size:11px; font-weight:400; text-transform:uppercase}
+h4.presetationH4 .badge{color:#0094c2; font-weight:400; background: none}
+
+.lead{ color:#006699;  font-weight:200; font-size:18px; line-height:22px;}
+
+.Partners h3{ color:#899499; font-size:12px; margin-top:37px;}
+.Partners .PartnersLogos{ margin-top:-18px;}
+.Partners .US{ margin-right:24px}
+.Partners .UMA{ margin-right:13px; margin-top:20px;}
+.Partners .UNEP{ margin-right:7px;}
+.Partners .MAP{}
+.list-group-item{ padding-left:20px; padding-right:20px;}
+.list-group-item:first-child{ border-radius:0px; border-top:0px;}
+.list-group-item:last-child {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-bottom: 0;
+}
+
+a.list-group-item:hover,
+a.list-group-item:focus {
+  text-decoration: none;
+  background-color: #f9f8f8;
+  color:#0094c2;
+}
+
+/*.mapa, .Columna_mapas{min-height:940px;}*/
+.mapa{
+	/*background:url(../img/mapa.jpg) no-repeat center center;*/
+	min-height:100%;
+	height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto ;
+  /* Pad bottom by footer height */
+  padding: 0 0 ;
+	}
+@media only screen and (max-width: 768px) {
+	.mapa{ height:750px;}
+	}
+@media only screen and (max-width: 480px) {
+	.mapa{ height:580px;}
+	}
+@media only screen and (max-width: 320px) {
+	.mapa{ height:250px;}
+	}
+.copy{
+	font-size:11px;
+	color:#899499;
+	}
+.geographica{  padding-top:3px;}
+.geographica a{color:#899499; font-size:11px;}
+
+*{ outline:none !important;}
+
+.row{ margin:0;}
+#footer {
+  height: 60px;
+  background-color: none;
+  padding:0 20px;
+}
+.container {
+  width: auto;
+  padding: 0 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#map{
+	
+	width: 1918px;
+}
+.infowindow{
+	width: 250px;
+}
