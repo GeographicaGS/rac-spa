@@ -3,11 +3,11 @@
   <transparencyLevelInt>255</transparencyLevelInt>
   <renderer-v2 attr="description" symbollevels="0" type="categorizedSymbol">
     <categories>
-      <category symbol="0" value="arena" label="Arena"/>
-      <category symbol="1" value="detrítico" label="Detrítico"/>
-      <category symbol="2" value="mixto arena y roca" label="Mixto arena y roca"/>
-      <category symbol="3" value="mixto detrítico y roca" label="Mixto detrítico y roca"/>
-      <category symbol="4" value="roca" label="Roca"/>
+      <category symbol="0" value="Arena" label="Arena"/>
+      <category symbol="1" value="Detrítico" label="Detrítico"/>
+      <category symbol="2" value="Mixto arena y roca" label="Mixto arena y roca"/>
+      <category symbol="3" value="Mixto detrítico y roca" label="Mixto detrítico y roca"/>
+      <category symbol="4" value="Roca" label="Roca"/>
     </categories>
     <symbols>
       <symbol outputUnit="MM" alpha="1" type="fill" name="0">
@@ -108,8 +108,8 @@
     <edittype type="0" name="description"/>
     <edittype type="0" name="gid"/>
   </edittypes>
-  <editform></editform>
+  <editform>.</editform>
   <editforminit></editforminit>
-  <annotationform></annotationform>
+  <annotationform>.</annotationform>
   <attributeactions/>
 </qgis>

@@ -101,3 +101,8 @@ ls
 ./00-configure_location.sh 
 ./00-configure_location.sh 
 exit
+cd ..
+cd scripts/
+./00-configure_location.sh
+./00-configure_location.sh
+exit

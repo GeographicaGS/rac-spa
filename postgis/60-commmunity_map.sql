@@ -13,6 +13,23 @@ where f_table_name='voronoi';
 update trash.voronoi
 set geom=st_setsrid(st_multi(geom), 3857);
 
+drop table context.bathimetry_mask;
+
+create table context.bathimetry_mask as
+with a as(
+  select st_union(geom) as geom
+  from context.height_ranges
+  where lower between -40 and -10
+),
+b as(
+  select geom
+  from context.survey_mask
+)
+select
+  1 as gid,
+  st_intersection(a.geom, b.geom) as geom
+from a, b;
+
 with a as(
   select geom
   from context.bathimetry_mask

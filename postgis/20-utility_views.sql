@@ -18,3 +18,11 @@ from
   a
 group by
   id_survey, geom;
+
+
+create or replace view utility_views.survey_original as
+select
+  *
+from
+  data.survey
+where original;

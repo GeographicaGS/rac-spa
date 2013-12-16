@@ -1,0 +1,281 @@
+Introduction
+------------
+
+In this lines, the process of adquiring, normalizing, and analyzing
+the data, from a GIS perspective, gathered in the Cap Trois Fourches
+early September 2013 field campaign is described. The goal of the
+whole project is to adquire scientific data that will help to the
+declaration of Cap Trois Fourches as a Marine Protected Area.
+
+
+Field Data Adquisition
+----------------------
+
+For data adquisition, two field GPS units where used. One was a TOPCOM
+handheld GPS unit, capable of submetric precision when a GPRS network
+is available. Unfortunately, GPRS coverage in the field is not always
+present, as is in a city environment, but nonetheless, precision was
+well under 5 meters. It connect both to the american GPS and the
+russian GLONASS constellation, so high precision coverage is always
+assured. Given the nature of the survey to be conducted (open waters
+over long distances), the positional error incurred by not having GPRS
+coverage was minimal.
+
+The other GPS unit was a Garmin GPS unit with a precision of about
+15-20 meters. Same considerations regarding the positional error apply
+to this device, as explained in the case of the TOPCOM unit.
+
+The datum used to register position was the WGS84, the standard
+worldwide and the natural choice when using GPS systems on the field.
+Coordinates where adquired and stored in geographic coordinates over
+the WGS84 ellipsoid.
+
+When a survey point was selected, divers take note of the position and
+grant the point a unique identification name suitable for further
+referencing without error. After diving, they took some brief notes
+regarding the species, communities, bottom type and any other feature
+encountered and proceed to the next point.
+
+After the diving sessions are over, a review meeting was held to put
+together all the material gathered during the day. Important technical
+tasks include metadating images and videos, linking those to the
+points they belong, and finally encoding everything into normalized
+Excel sheets. Those Excel sheets were the main data input to the GIS
+analysis workflow.
+
+
+Technology Stack
+----------------
+
+An full Open Source (OS) technology stack has been used in the
+analysis process. No proprietary software ever took part in the
+analysis process nor the building of the web site, in particular, no
+ESRI technology was ever used. ESRI products are very prone to
+technology-locking effects, and lack in interoperativity capabilities
+to open systems. Thus, it is always avoided by us.
+
+Both desktop computers and servers run Linux operating systems, Debian
+on the servers and Ubuntu on the desktops. The core of the system is
+the PostGIS Open Source geographic and object-oriented relational
+database. PostGIS is an extension to the powerfull PostgreSQL Open
+Source database that enables it geographically. PostGIS relies on
+robust and proven OS geomatics libraries like Proj.4 (geodesic
+library), GDAL/OGR (interoperativity), and GEOS (topological engine).
+
+To support some kind of analysis (Voronoi polygons calculation, for
+example), the OS GIS GRASS was used. GRASS is one of the most
+powerfull GIS around, and interact nicely with PostGIS.
+
+To interact with the PostGIS database, digitize data, query them
+graphically, and making cartography, the Quantum GIS was used. Quantum
+GIS is a nice and feature-rich Open Source desktop GIS, capable of
+rendering beautiful maps and that interacts nicely with both GRASS and
+PostGIS. Although Quantum GIS itself boast a daunting analysis
+library, it was used primarily for visualization, digitalization, and
+cartography. Analysis duties relies on PostGIS and GRASS.
+
+For the web site, one can say that almost of it is also based on an
+Open Source stack. The only component that is not Open Source (albeit
+it is free in most case uses) is the Google Maps cartographic mash-up.
+This service is free to use, but one has to comply to the Google Terms
+of Use, that forbids the use of their services without using their
+mash-up. In other words, one is not allowed to use, for example, the
+satellite images provided by Google without using Google Maps.
+
+Other than that, the backend of the web site is build upon the same
+PostGIS database used for analysis. Web services are provided by the
+PHP programming language, and the web server used is an Apache.
+
+For the web site front-end, we opted for the aforementioned Google
+Maps mash-up for speed of development and satellite imagery
+availability. The front-end is build with Javascript and relies
+heavily on Ajax techniques for asynchronous communication with the
+backend.
+
+
+Workflow and Analytical Process
+-------------------------------
+
+The first step in the analytical workflow was, as usual, data
+integration and normalization. The main input to the system was the
+Excel sheets where all the information concerning the surveying points
+where stored. Excel is not the best tool for encoding normalized data
+(this is the realm for databases), but can be of great help when used
+properly.
+
+A program in Pl/PgSQL, the programming language default to PostgreSQL,
+was created to analyze and normalize the data in the Excel sheets and
+load it into the database. To be sure that we can access the most
+flexible data analysis techniques, a geographic relational model was
+devised to store all the data gathered on the field. This relational
+model was based on objects such as the survey point, the bottom type,
+the communities in each point, and the species and their qualitative
+abundance.
+
+Once all the core information has been loaded into the PostGIS
+database, it's time to evaluate if other sources of data are needed.
+We weren't able to find cartographic digital information regarding the
+of study of enough level of detail, so digitalization of vector
+information from analog data sources was a must. We got several
+nautical charts and topographic maps, so several layers of information
+were manually digitized: bathimetry and altimetry, coast line,
+toponism, streams and the like. For this end, raw images of this
+source of information were georeferenced, that is, they where given
+real geographic coordinates so they can be overlayed over other
+existing sources of information. Once in place, vector data were
+manually digitized and inserted into the database.
+
+This new data has to be processed. For example, bathimetry lines were
+digitized, but for proper analysis, polygonal bathimetry ranges were
+needed. Thus, bathimetry lines were loaded into a GRASS database.
+GRASS has powerfull topological construction and cleaning
+capabilities, so it's the perfect piece of software to construct those
+polygons from the bathimetry lines. Then, back in PostGIS, a simple
+geographic SQL query was enough to assign to each polygon the bottom
+and top altitudes they cover. Several masks where also constructed:
+one for land / water discrimination, and another one for the
+bathimetry ranges that was surveyed on the field (0 - 40 meters).
+
+With the relational model and all the data digitized from analog
+sources, the real analytical process can begin. First, a series of
+geographic SQL queries where written to extract basic information on
+the survey points. For example, what kind of bottom type they have, or
+the catalog of species observed there, and the communities found.
+
+The problem at hand is easy to understand: discrete survey points are
+available, and in them information is very precise, but what is wanted
+is to make a guess or an interpolation of what's going on between
+those well-known points. That is, the goal is to make a geographic
+discrete information continuous.
+
+Two approaches were explored to address this problem: one based on a
+regular matrix, and another one based on Voronoi polygons. The regular
+matrix approach consist in dividing the whole area of study into
+regular areas, or tiles, in this case of one kilometer by side, and
+then analyze the survey points falling into each of this tiles. The
+characteristics of those points are assigned to the whole tile. For
+example, if a certain species was found in a survey point in a tile,
+then the species is considered to be present in the whole tile.
+
+This technique is put to very good use in a lot of studies, but they
+tend to be ones with several key characteristics:
+
+  - they tend to be large scale studies, for example, the whole
+    western Mediterranean;
+
+  - they are based on models of phenomena distribution, like for
+    example ecological or habitat models based on available data.
+
+In this case, neither the scale nor the availability of a model was
+suitable for the adoption of such a technic. The Voronoi approach was
+selected.
+
+Voronoi polygons is a basic vector technic that consists in assigning
+to each point in a set an area of influence. That is, a Voronoi
+polygonization of a space divide it so each point in the space falls
+within a polygon that has at its centroid the nearest point in the
+set. Thus, the Voronoi polygon of a point is the set of points in the
+geographic space that has this given point as the closest among the
+whole set of target points. Of course, the voronization of a space
+depends on the number and distribution of the survey points. If they
+are close together, Voronoi polygons will be small and make for a
+"cramped" and highly compartimented space, whereas if they are
+separated by long distances the Voronoi polygons will be very big.
+
+So the basic technic with Voronoi consists in calculating the polygons
+and then passing the attributes of the survey point to the whole
+polygon, because it is considered that the survey point that generated
+the Voronoi polygon is representative for all the points into the
+polygon. In this way, we achieve the intended goal: to more or less
+accurately make a discrete geographic data (point, no dimensions) into
+continous one (polygon, two dimensions).
+
+The state-of-the-art computational geometry algorithms of GRASS were
+responsible for computing the Voronoi polygons from the survey points.
+GRASS read directly from PostGIS, compute the polygons and load them
+in turn into the database.
+
+With the Voronoi polygons in the database, all that's left is to write
+several spatial SQL and Pl/PgSQL programs to get the final analysis.
+Three main layers of information were of interest:
+
+  - a communities layer;
+
+  - a bottom type layer;
+
+  - distribution for 5 key species.
+
+Distribution of species is the simplest of the workflows:
+
+  - first, for each species, found in what points they have been
+    observed. Take the corresponding Voronoi polygon;
+
+  - unite adjacent polygons into a single one. The distribution area
+    for the species is obtained.
+
+Bottom type is also fairly straighforward:
+
+  - found out the bottom type for each survey point / Voronoi polygon;
+
+  - unite adjacent polygons with the same bottom type. The
+    distribution of bottom types is obtained.
+
+The communities layer is a little bit more tricky, because for a
+survey point, more than one community can be observed:
+
+  - found out which and how many communities are in a point / polygon;
+
+  - unite them, creating "mixed" communities types;
+
+  - unite adjacent polygons with the same community or combination of
+    communities. The distribution of communities is obtained.
+
+With all these analysis layers, now it's time to cartograph them and
+make maps. To this end, Quantum GIS desktop was used. Layers were
+loaded into the map and appropiately styled. Several maps were
+produced:
+
+  - communities map;
+
+  - species maps;
+
+  - bottom type map;
+
+  - survey points map;
+
+  - geographic context map.
+
+
+Conclusion
+----------
+
+This is a typical example of GIS analysis workflow. It encompases a
+lot of common, albeit not simple, GIS processes. First, data
+integration, which is a critical part of the process if not planned
+properly before starting to get field data. Fortunately, we were able
+to address this issue on the field and a simple, yet effective,
+protocol was devised, which made the analyst life much easier when
+this vital part of the process begun. This is how projects must be
+addressed from the beginning: simple, unobstrusive protocols on the
+field, but normalized enough so in later stages of the project data
+are under control.
+
+Then comes the digitalization of new information from non-digital
+sources. Although computers have been around for a while, there is
+still so much rich data in analog sources that GIS projects still have
+and will have a fair share of digitizing hours.
+
+After that, the devise of an analysis strategy and proof of concept of
+several algorithms, until we are satisfied with the results of one of
+them. Then, the real analysis takes place, adjusting the methodology
+until sensible output is obtained. The point here is to automate the
+workflow as much as possible, so it can be repeated over and over
+again with a minimun of time overhead. For this, geographica
+relational databases and incredible piece of software like GRASS is a
+must.
+
+And in the end, making maps. In a more a more technical world, where
+the data is the prime concern for us all, we lost sight of the
+importance of providing good, readable maps as one of the most
+important deliverables from a GIS project.
+
