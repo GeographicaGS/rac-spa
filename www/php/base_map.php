@@ -27,7 +27,7 @@ switch ($layer)
         $sql = "SELECT description_fr,st_asgeojson(st_transform(geom,4326)) as geojson FROM www.bottom_map";
         break;
     case "community":
-        $sql = "SELECT st_asgeojson(st_transform((st_dump(geom)).geom,4326)) as geojson FROM www.community_map";
+        $sql = "SELECT gid, com,st_asgeojson(st_transform((st_dump(geom)).geom,4326)) as geojson FROM www.community_map";
         break;
     case "cystoseira_mediterranea":
         $sql = "SELECT st_asgeojson(st_transform(geom,4326)) as geojson FROM www.cystoseira_mediterranea_map";

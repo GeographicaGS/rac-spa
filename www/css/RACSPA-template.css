@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Titillium Web
 .panel-title > a:hover {
     color: #0094c2;
 }
-#accordion{ margin-bottom:30px;}
+/*#accordion{ margin-bottom:30px;}*/
 h4.presetationH4{ color:#899499; font-size:11px; font-weight:400; text-transform:uppercase}
 h4.presetationH4 .badge{color:#0094c2; font-weight:400; background: none}
 
@@ -121,7 +121,7 @@ h4.presetationH4 .badge{color:#0094c2; font-weight:400; background: none}
 .Partners .UMA{ margin-right:13px; margin-top:20px;}
 .Partners .UNEP{ margin-right:7px;}
 .Partners .MAP{}
-.list-group-item{ padding-left:20px; padding-right:20px;}
+.list-group-item{ padding-left:30px; padding-right:20px;}
 .list-group-item:first-child{ border-radius:0px; border-top:0px;}
 .list-group-item:last-child {
     border-bottom-left-radius: 0px;
@@ -170,6 +170,15 @@ a.list-group-item:focus {
   background-color: none;
   padding:0 20px;
 }
+
+@media (min-width: 1365px) {
+	#footer {
+		position: fixed;
+  		width: 25%;
+  		bottom: 0;
+	}
+}
+
 .container {
   width: auto;
   padding: 0 0;
@@ -184,4 +193,12 @@ a.list-group-item:focus {
 }
 .infowindow{
 	width: 250px;
+}
+
+.leyenda{
+	position: absolute;
+	bottom: 34px;
+	left: 10px;
+	display: none;
+}
 }

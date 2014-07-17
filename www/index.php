@@ -23,6 +23,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=fr"></script>
 	
 	<script src="js/GeoJSON.js"></script>
+  <script src="js/GeoJsonStyles.js"></script>
 	<script src="js/map.js"></script>
 
 
@@ -50,7 +51,8 @@
 
 		<div class="row">
         	<div class="col-md-9 mapa">
-			  <div id="map" ></div>  
+			  <div id="map" ></div>
+        <img src="img/leyenda.png" class="leyenda">
 			  <!--<img src="img/mapa.jpg" width="1918" height="">-->
 			
 			</div><!--/.mapa -->
@@ -161,16 +163,17 @@
                     <div id="collapseTwo" class="panel-collapse collapse">
                       <div class="panel-body">
                         <div class="list-group capas">
-                          <a href="javascript:Map.drawPoints()" class="list-group-item active" >
-							Enquête
-                          </a>
-                          <a href="javascript:Map.drawLayer('astroides_calycularis')" class="list-group-item ">Astroides Calycularis</a>						  
-						  <a href="javascript:Map.drawLayer('bottom')" class="list-group-item">Fonds marines</a>
-						  <a href="javascript:Map.drawLayer('community')" class="list-group-item">Communautés biologiques marines </a>						  
-						  <a href="javascript:Map.drawLayer('cystoseira_mediterranea')" class="list-group-item">Cystoseira Mediterranea</a>
-						  <a href="javascript:Map.drawLayer('ophidiaster_ophidianus')" class="list-group-item">Ophidiaster Ophidianus</a>
-						  <a href="javascript:Map.drawLayer('pinna_rudis')" class="list-group-item">Pinna Rudis</a>
-						  <a href="javascript:Map.drawLayer('savalia_savaglia')" class="list-group-item">Savalia Savaglia</a>
+                          
+                          <div class="list-group-item" style="padding-left: 20px; font-weight:bold">De base</div>
+                          <a href="javascript:Map.drawPoints()" class="list-group-item active" >Enquête</a>
+            						  <a href="javascript:Map.drawLayer('bottom')" class="list-group-item">Fonds marines</a>
+                          <a href="javascript:Map.drawLayer('community')" class="list-group-item">Communautés biologiques marines </a>
+                          <div class="list-group-item" style="padding-left: 20px; font-weight:bold">Espèce</div>
+                          <a href="javascript:Map.drawLayer('astroides_calycularis')" class="list-group-item ">Astroides Calycularis</a>              
+            						  <a href="javascript:Map.drawLayer('cystoseira_mediterranea')" class="list-group-item">Cystoseira Mediterranea</a>
+            						  <a href="javascript:Map.drawLayer('ophidiaster_ophidianus')" class="list-group-item">Ophidiaster Ophidianus</a>
+            						  <a href="javascript:Map.drawLayer('pinna_rudis')" class="list-group-item">Pinna Rudis</a>
+            						  <a href="javascript:Map.drawLayer('savalia_savaglia')" class="list-group-item">Savalia Savaglia</a>
 						  
 
                          
@@ -191,6 +194,7 @@
 		</div>
 
   </div>
+
 	
 
     <!-- Bootstrap core JavaScript

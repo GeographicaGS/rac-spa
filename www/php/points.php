@@ -24,7 +24,8 @@ while($row = pg_fetch_object($result))
     $directory = "../gallery/$row->id_survey";
     
     $row->images = glob($directory . "/*{JPG,GIF,PNG,jpg,gif,png}", GLOB_BRACE);
-    $row->videos = glob($directory . "/*{MOV,AVI,MP4,MPG,mov,avi,mp4,mpg}", GLOB_BRACE);
+    // $row->videos = glob($directory . "/*{MOV,AVI,MP4,MPG,mov,avi,mp4,mpg}", GLOB_BRACE);
+    $row->videos = glob($directory . "/*{mp4}", GLOB_BRACE);
     $row->geojson = json_decode($row->geojson);
     $response["results"] []= $row;
 }
