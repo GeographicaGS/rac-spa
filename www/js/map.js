@@ -100,9 +100,11 @@ Map = {
         
         if(el.hasOwnProperty("description_fr")){
             fillColor = GeoJsonStyles(el.description_fr);
+            $(".leyenda").find("img").attr("src","img/leyende_fondsmarines.png");
             $(".leyenda").show();
         }else if(el.hasOwnProperty("gid")){
             fillColor = GeoJsonStyles(el.gid);
+            $(".leyenda").find("img").attr("src","img/leyende_communautes.png");
             $(".leyenda").show();
         }else{
             $(".leyenda").hide();
@@ -113,7 +115,7 @@ Map = {
             "strokeOpacity": 1,
             "strokeWeight": 2,
             "fillColor": fillColor,
-            "fillOpacity": (el.hasOwnProperty("description_fr") || el.hasOwnProperty("gid") ? 0.5: 0.25)
+            "fillOpacity": (el.hasOwnProperty("description_fr") || el.hasOwnProperty("gid") ? 1: 0.25)
         }),obj = this;
         googleVector.setMap(this._map);
         this._layerEls.push(googleVector);
@@ -161,23 +163,23 @@ Map = {
         
         html = "<div class='infowindow'>" +
                     "<h4>"+el.name+"</h4>" + 
-                    "<p>Profondeur:&nbsp"+el.depth +" mètres.</p>";
+                    "<p class='descp'>PROFONDEUR:&nbsp<p class='prof'>"+el.depth +" mètres.</p>";
                     
         if (el.images.length>0)
         {
-            html += "<p><a href='javascript:Map.openPointImageGallery("+el.id_survey+")'> Galerie d'images.</a></p>";
+            html += "<p class='images'><a href='javascript:Map.openPointImageGallery("+el.id_survey+")'> Galerie d'images </a>(" + el.images.length + ")</p>";
         }        
         
         if (el.videos.length>0)
         {               
-            // html += "<p><a href='javascript:Map.openPointVideoGallery("+el.id_survey+")'> Galerie de vidéos.</a></p>";
+            html += "<p class='videos'>Vidéo</p>";
             var el = this._points[el.id_survey];
             for (i in el.videos){
                 var url = el.videos[i].substr(3);
                 if(window.chrome || navigator.appName == 'Microsoft Internet Explorer'){
-                    html += "<p><a href=\"javascript:Map.playVideo('" + url + "')\">Vidéo " + (parseInt(i)+1) +".</a></p>";
+                    html += "<p class='videoRef'><a href=\"javascript:Map.playVideo('" + url + "')\">" + (parseInt(i)+1) +"</a></p>";
                 }else{
-                    html += "<p><a href=\""+url+"\" target='_blank'>Vidéo " + (parseInt(i)+1) +".</a></p>";
+                    html += "<p class='videoRef'><a href=\""+url+"\" target='_blank'>" + (parseInt(i)+1) +"</a></p>";
                 }
             }
         }

@@ -52,7 +52,7 @@
 		<div class="row">
         	<div class="col-md-9 mapa">
 			  <div id="map" ></div>
-        <img src="img/leyenda.png" class="leyenda">
+        <div class="leyenda"><img style="margin: 20px;" src="" class=""></div>
 			  <!--<img src="img/mapa.jpg" width="1918" height="">-->
 			
 			</div><!--/.mapa -->
