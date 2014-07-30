@@ -1,8 +1,8 @@
 <?
 $config = array(
-    "host" => "mother",
-    "port" => 5432,
+    "host" => "william.geographica.gs",
+    "port" => 5434,
     "database" => "racspa",
-    "user" => "postgres",
-    "pass" => "pgmother13"
+    "user" => "racspa",
+    "pass" => "voronoi"
 );
