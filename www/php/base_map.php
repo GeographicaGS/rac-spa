@@ -7,7 +7,7 @@ if (!$conn)
   exit;
 }
 
-$layers = array("astroides_calycularis","bottom","community","cystoseira_mediterranea","ophidiaster_ophidianus","pinna_rudis","savalia_savaglia");
+$layers = array("astroides_calycularis","bottom","community","cystoseira_mediterranea","ophidiaster_ophidianus","pinna_rudis","savalia_savaglia","bathymetry");
 
 
 if (!isset($_GET["layer"]) || !$_GET["layer"] || array_search($_GET["layer"] ,$layers)===FALSE)
@@ -41,6 +41,10 @@ switch ($layer)
     case "savalia_savaglia":
         $sql = "SELECT st_asgeojson(st_transform(geom,4326)) as geojson FROM www.savalia_savaglia_map";
         break;
+    case "bathymetry":
+        $sql = "SELECT height,st_asgeojson(st_transform(geom,4326)) as geojson FROM context.bathimetry_line";
+        break;
+
 }
 
 $result = pg_query($conn, $sql);

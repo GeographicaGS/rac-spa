@@ -24,15 +24,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Titillium Web
 .Columna_mapas{
 	background:#fff;
 	border-left:1px solid #283237;
-	min-height:100%;
-	height: auto;
+	/*min-height:100%;*/
+	
+    overflow-y :auto; 
   /* Negative indent footer by its height */
   margin: 0 auto /*-60px*/;
   /* Pad bottom by footer height */
   padding: 10px 0 0px /*60px*/;
-  margin-bottom: -9999px;
-    padding-bottom: 9999px;
-	}
+}
+
 .idiomas .btn{
 	font-size:12px;
 	color:#0094c2;
@@ -49,8 +49,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Titillium Web
 	width:100%;
 	margin-bottom:11px;
 	}
-.logoCirculo{ margin-right:20px; float: left; width:auto; padding-right:20px; border-right:1px solid #e1e4e5;height:auto}
-.racspaLogo{float: left; width:auto; margin-top:15px}
+.logoCirculo{ margin-right:20px; float: left;  padding-right:20px; border-right:1px solid #e1e4e5;height:auto}
+.racspaLogo{float: left; margin-bottom: 18px}
 .page-header h1.title{
 	margin-top:14px;
 	color:#006699;
@@ -116,7 +116,7 @@ h4.presetationH4 .badge{color:#0094c2; font-weight:400; background: none}
 .lead{ color:#006699;  font-weight:200; font-size:18px; line-height:22px;}
 
 .Partners h3{ color:#899499; font-size:12px; margin-top:37px;}
-.Partners .PartnersLogos{ margin-top:-18px;}
+
 .Partners .US{ margin-right:24px}
 .Partners .UMA{ margin-right:13px; margin-top:20px;}
 .Partners .UNEP{ margin-right:7px;}
@@ -169,14 +169,6 @@ a.list-group-item:focus {
   height: 60px;
   background-color: none;
   padding:0 20px;
-}
-
-@media (min-width: 1365px) {
-	#footer {
-		position: fixed;
-  		width: 25%;
-  		bottom: 0;
-	}
 }
 
 .container {
