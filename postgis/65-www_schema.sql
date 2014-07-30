@@ -109,6 +109,7 @@ create table www.community_map as
 select
   row_number() over (order by com) as gid,
   com,
+  trim(com::varchar, '{}') as com_varchar,
   st_union(geom) as geom
 from
   trash.com6
