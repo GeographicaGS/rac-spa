@@ -5,8 +5,8 @@
 export PG_LIST_ALL_TABLES=YES
 host=localhost
 port=5432
-user=racspa
-pass=racspa
+user=postgres
+pass=postgres
 dbname=racspa
 
 # Set projection

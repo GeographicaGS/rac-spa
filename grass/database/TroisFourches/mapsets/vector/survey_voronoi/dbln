@@ -1,0 +1,1 @@
+1/context.active_survey survey_voronoi cat $GISDBASE/$LOCATION_NAME/$MAPSET/dbf/ dbf
