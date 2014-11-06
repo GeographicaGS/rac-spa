@@ -1,4 +1,0 @@
-* Assets
-
-GIT in mother: /home/git/dev/racspa
-

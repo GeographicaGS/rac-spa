@@ -4,3 +4,5 @@
 99-pg_restore
 00-config.sql
 *.komodoproject
+*.DS_Store
+www/php/configuration.php
