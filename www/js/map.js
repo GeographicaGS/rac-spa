@@ -183,6 +183,7 @@ Map = {
                 }
             }
         }
+        html += "</div>"
         
         var infowindow = new google.maps.InfoWindow({
             content: html
