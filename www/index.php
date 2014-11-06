@@ -246,6 +246,24 @@ Désertification.</p>
                       </div>
                     </div>
                   </div>
+                  
+                  <div class="panel-default">
+                    <div class="panel-heading duty">
+                      <h4 class="panel-title presetationH4">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                           DROITS D’AUTEUR ET DE PUBLICATION
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <p>
+                          Tout le matériel existant sur cette plateforme, y compris les cartes, les photos et les vidéos, demeure la propriété du CAR/ASP et de l'Université de Séville.
+                        <p>
+                      </div>
+                    </div>
+                  </div>
+
                 </div><!--/#accordion -->
                 <div id="footer" class="col-md-12">
                   <div class="container">

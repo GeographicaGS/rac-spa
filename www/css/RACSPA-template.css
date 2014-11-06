@@ -83,6 +83,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Titillium Web
 .panel-body{ padding:0px;}
 .panel-group .presentation .panel-body{ padding:10px 20px 20px;}
 
+#collapseThree .panel-body{
+	margin:10px 20px 20px;
+}
+
 .panel-default > .panel-heading + .panel-collapse .panel-body{ border-top:0px;}
 .Partners{}
 
@@ -105,7 +109,20 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Titillium Web
 .panel-default{ border:none;}
 .panel{ box-shadow:none}
 .panel-group .panel{ border-radius:0px;}
-.panel-default > .panel-heading{ background:#eeeeee; border-bottom:1px solid #c4c9cc; border-top:1px solid #c4c9cc; border-radius:0px; padding-left:20px; padding-right:20px;}
+
+.panel-default > .panel-heading{ 
+	/*background:#eeeeee; */
+	background:none;
+	border-bottom:1px solid #c4c9cc;
+	border-top:1px solid #c4c9cc;
+	border-radius:0px; 
+	padding-left:20px; 
+	padding-right:20px;
+}
+
+.panel-heading.duty{
+	border-top: none;
+}
 .panel-title > a:hover {
     color: #0094c2;
 }
